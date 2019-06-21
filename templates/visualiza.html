@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>Visualizar</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="static/css/estilo.css" rel="stylesheet" media="screen">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+ 		<script type=text/javascript src="{{url_for('static', filename='js/javascript.js') }}"></script>
+	</head>
+	<body>
+		<div class="entradas">
+			<br>
+			<h3>Pesquisar defeitos</h3>
+			<img src="static/imagens/lupa.png" width="200px" height="200px">
+			<form action="" method="post">
+				<br>
+				<input type="text" placeholder="Placa" id="placa" name="placa" onfocus="Apagacampo('componente','defeito')" value="{{request.form.placa }}"> 
+				<br>
+				<input type="text" placeholder="Defeito" id="defeito" name="defeito" onfocus="Apagacampo('componente','placa')" value="{{request.form.defeito }}"> 
+				<br>
+				<input type="text" placeholder="Componente" id="componente" name="componente" onfocus="Apagacampo('placa','defeito')" value="{{request.form.componente}}">
+				<br>
+				<br>
+				<button class="btn btn-outline-danger" id="myBtn">PESQUISAR</button>
+				<br>
+				<br>
+			</form>
+			<form action="{{url_for('home')}}" method="">
+				<input class="btn btn-danger" type="submit" value="VOLTAR">
+			</form>
+		</div>
+	</body>
+</html>

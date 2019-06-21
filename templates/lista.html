@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<title>Lista</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="static/css/estilo.css" rel="stylesheet" media="screen">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+ 		<script type=text/javascript src="{{url_for('static', filename='js/javascript.js') }}"></script>
+	</head>
+	<body>
+		<div class="container">
+			<table width="100%" border="1px" >
+				<tr>
+					<br>
+					<td align="center" width="10%" height="40" bgcolor="tomato">PLACA</td>
+					<td align="center" width="12%" bgcolor="tomato">COMPONENTE</td>
+					<td align="center" width="10%" bgcolor="tomato">POSIÇÃO</td>
+					<td align="center" width="68%" bgcolor="tomato">DEFEITO</td>
+				</tr>
+				{%for i in range(0,len)%}
+					<tr>
+						<td align="center" height="40">{{placa[i][0]}}</td>
+						<td align="center">{{placa[i][1]}}</td>
+						<td align="center">{{placa[i][2]}}</td>
+						<td align="center">{{placa[i][3]}}</td>
+					</tr>
+				{%endfor%}
+			</table>
+			<form action="{{url_for('visualizar')}}" method="">
+				<br>
+				<br>
+				<input class="btn btn-danger btn-lg btn-block" type="submit" value="VOLTAR">
+			</form>
+		</div>
+	</body>
+</html>
+
+

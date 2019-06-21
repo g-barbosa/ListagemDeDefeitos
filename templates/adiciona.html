@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>Adicionar</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="static/css/estilo.css" rel="stylesheet" media="screen">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script type=text/javascript src="{{url_for('static', filename='js/javascript.js') }}"></script>
+	</head>
+	<body>
+		<div class="entradas">
+			<br>
+			<h3>Adicionar defeito encontrado</h3>
+			<br>
+			<img src="static/imagens/add.png" width="150px" height="150px">
+			<form action="{{url_for('adicionar')}}" method="post">
+				<br>
+				<input type="text"  placeholder="Placa" id="pla" name="placa" value="{{request.form.placa }}"> 
+				<br>
+				<input type="text" placeholder="Componente" id="comp" name="componente" value="{{request.form.componente }}"> 
+				<br>
+				<input type="text" placeholder="Posição" id="pos" name="posicao" value="{{request.form.posicao }}">
+				<br>
+				<input type="text" placeholder="Defeito" id="def" name="defeito" value="{{request.form.defeito }}"> 
+				<br>
+				<br>
+				<button class="btn btn-outline-danger" type="submit" onclick='alert("ADICIONADO COM SUCESSO!")'>ADICIONAR</button>	
+				<br>
+				<br>
+			</form>
+			<form action="{{url_for('home')}}" method="">
+				<input class="btn btn-danger" type="submit" value="VOLTAR">
+			</form>
+		</div>	
+	</body>
+</html>

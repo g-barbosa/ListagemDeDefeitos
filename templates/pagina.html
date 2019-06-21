@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>Inicio</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="static/css/estilo.css" rel="stylesheet" media="screen">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<div class="container">
+			<h1>BEM-VINDO, {{nome}}</h1>
+			<br>
+			<h3>O que deseja fazer?</h3>
+			<br>
+			<div class="entradas">
+				<form action="{{url_for('visualizar')}}" method="">
+					<input class="btn btn-outline-danger btn-lg btn-block" type="submit" value="Visualizar lista de defeitos">
+				</form>
+				<br>
+				<form action="{{url_for('adicionar')}}" method="">
+					<input class="btn btn-outline-danger btn-lg btn-block" type="submit" value="Adicionar defeitos encontrados">
+				</form>
+				<br>
+				<form action="{{url_for('logout')}}" method="">
+					<input class="btn btn-danger btn-lg btn-block" type="submit" value="Sair">
+				</form>
+			</div>
+			{% if error %}
+				<p class="error"><strong>Error:</strong> {{ error }}
+			{% endif %}
+		</div>
+	</body>
+</html>
