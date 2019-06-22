@@ -4,9 +4,9 @@ import mysql.connector
 def conectaBanco():
     mydb = mysql.connector.connect(
     host="localhost",
-    user="giovanne",
-    passwd="giovanne",
-    database="listadefeitos"
+    user="seuUsuario",
+    passwd="suaSenha",
+    database="suaDataBase"
     )
     return mydb
 
@@ -31,10 +31,10 @@ def verificaUser(usuario):
         return 'erro'
 
 
-def insereDefeito(placa,componente,posicao,defeito):
+def insereDefeito(equipamento,placa,componente,posicao,defeito):
 	mydb = conectaBanco()
 	cursor = mydb.cursor()
-	cursor.execute("INSERT INTO defeitos (placa,componente,posicao,defeito) VALUES ('"+placa+"','"+componente+"','"+posicao+"','"+defeito+"')")
+	cursor.execute("INSERT INTO defeitos (equipamento,placa,componente,posicao,defeito) VALUES ('"+equipamento+"','"+placa+"','"+componente+"','"+posicao+"','"+defeito+"')")
 	mydb.commit()
 
 
