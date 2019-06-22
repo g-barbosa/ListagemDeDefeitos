@@ -15,6 +15,8 @@
 			<img src="static/imagens/add.png" width="150px" height="150px">
 			<form action="{{url_for('adicionar')}}" method="post">
 				<br>
+				<input type="text"  placeholder="Equipamento" id="equ" name="equipamento" value="{{request.form.equipamento }}"> 
+				<br>
 				<input type="text"  placeholder="Placa" id="pla" name="placa" value="{{request.form.placa }}"> 
 				<br>
 				<input type="text" placeholder="Componente" id="comp" name="componente" value="{{request.form.componente }}"> 
