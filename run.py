@@ -62,7 +62,7 @@ def adicionar():
     if 'usuario_logado' not in session or session['usuario_logado'] == None:
         return redirect(url_for('login'))
     elif request.method == 'POST':
-        insereDefeito(request.form['placa'],request.form['componente'],request.form['posicao'],request.form['defeito'])
+        insereDefeito(request.form['equipamento'],request.form['placa'],request.form['componente'],request.form['posicao'],request.form['defeito'])
         return redirect(url_for('adicionar'))
     else:
         return render_template('adiciona.html')
