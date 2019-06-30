@@ -4,4 +4,12 @@
 <h2>Pré-requisitos:</h2>
 <ul>
 	<li>Python 3.6+</li>
+	<li>Flask</li>
+	<li>MySQL Connector</li>
 </ul>
+
+<h3>Atenção</h3>
+<p>Você deve alterar o arquivo runbanco.py, modificando host, user, passwd e database com as respectivas informações do seu banco.</p>
+
+<h1>----------------------------</h2>
+<p>Criado por Giovanne Barbosa</p>
