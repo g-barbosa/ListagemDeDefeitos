@@ -1,7 +1,9 @@
+
 <html>
 	<head>
 		<title>Adicionar</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="static/css/reset.css">
 		<link href="static/css/estilo.css" rel="stylesheet" media="screen">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -15,22 +17,22 @@
 			<img src="static/imagens/add.png" width="150px" height="150px">
 			<form action="{{url_for('adicionar')}}" method="post">
 				<br>
-				<input type="text"  placeholder="Equipamento" id="equ" name="equipamento" value="{{request.form.equipamento }}"> 
+				<input type="text" placeholder="Equipamento" id="equ" name="equipamento" value="{{request.form.equipamento }}" required>
 				<br>
-				<input type="text"  placeholder="Placa" id="pla" name="placa" value="{{request.form.placa }}"> 
+				<input type="text" placeholder="Placa" id="pla" name="placa" value="{{request.form.placa }}" required> 
 				<br>
-				<input type="text" placeholder="Componente" id="comp" name="componente" value="{{request.form.componente }}"> 
+				<input type="text" placeholder="Componente" id="comp" name="componente" value="{{request.form.componente }}" required> 
 				<br>
-				<input type="text" placeholder="Posição" id="pos" name="posicao" value="{{request.form.posicao }}">
+				<input type="text" placeholder="Posição" id="pos" name="posicao" value="{{request.form.posicao }}" required>
 				<br>
-				<input type="text" placeholder="Defeito" id="def" name="defeito" value="{{request.form.defeito }}"> 
+				<input type="text" placeholder="Defeito" id="def" name="defeito" value="{{request.form.defeito }}" required> 
 				<br>
 				<br>
-				<button class="btn btn-outline-danger" type="submit" onclick='alert("ADICIONADO COM SUCESSO!")'>ADICIONAR</button>	
+				<button class="btn btn-outline-danger" type="submit" onsubmit='alerta("ADICIONADO")'>ADICIONAR</button>	
 				<br>
 				<br>
 			</form>
-			<form action="{{url_for('home')}}" method="">
+			<form action="{{url_for('autenticar')}}" method="">
 				<input class="btn btn-danger" type="submit" value="VOLTAR">
 			</form>
 		</div>	
