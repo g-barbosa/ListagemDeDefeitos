@@ -9,32 +9,52 @@
 	</head>
 	<body>
 		<div class="container">
+			<br>
+			<table width="100%" bgcolor="#c82333">
+				<tr>
+					<td align="center" width="25%">
+						<img src="static/imagens/lupa.png" width="30" height="30" alt="REMOVER"></a>
+					</td>
+					<td align="center" width="25%">
+						<input type="text" placeholder="Placa" id="placa" name="placa" onfocus="Apagacampo('componente','defeito')">
+					</td>
+					<td align="center" width="25%">
+						<input type="text" placeholder="Defeito" id="defeito" name="defeito" onfocus="Apagacampo('componente','placa')"> 
+					</td>
+					<td align="center" width="25%">
+						<input type="text" placeholder="Componente" id="componente" name="componente" onfocus="Apagacampo('placa','defeito')">
+					</td>
+				</tr>
+			</table>
 			<table width="100%" border="1px" >
 				<tr>
 					<br>
-					<td align="center" width="12%" height="40" bgcolor="tomato">EQUIPAMENTO</td>		
-					<td align="center" width="10%" bgcolor="tomato">PLACA</td>
-					<td align="center" width="12%" bgcolor="tomato">COMPONENTE</td>
-					<td align="center" width="10%" bgcolor="tomato">POSIÇÃO</td>
-					<td align="center" width="56%" bgcolor="tomato">DEFEITO</td>
+					<td align="center" width="12%" height="40" bgcolor="#c82333">EQUIPAMENTO</td>		
+					<td align="center" width="10%" bgcolor="#c82333">PLACA</td>
+					<td align="center" width="12%" bgcolor="#c82333">COMPONENTE</td>
+					<td align="center" width="10%" bgcolor="#c82333">POSIÇÃO</td>
+					<td align="center" width="50%" bgcolor="#c82333">DEFEITO</td>
+					<td align="center" width="6%" bgcolor="#c82333"></td>
 				</tr>
 				{%for i in range(0,len)%}
-					<tr>
-						<td align="center" height="40">{{placa[i][0]}}</td>
-						<td align="center">{{placa[i][1]}}</td>
-						<td align="center">{{placa[i][2]}}</td>
-						<td align="center">{{placa[i][3]}}</td>
-						<td align="center">{{placa[i][4]}}</td>
+					<tr class="infoDefeito">
+						<td align="center" class="nomeEquip" height="40">{{placa[i][0]}}</td>
+						<td align="center" class="nomePlaca">{{placa[i][1]}}</td>
+						<td align="center" class="nomeComp">{{placa[i][2]}}</td>
+						<td align="center" class="nomePos">{{placa[i][3]}}</td>
+						<td align="center" class="nomeDef">{{placa[i][4]}}</td>
+						<td align="center" class="remove">
+							<a href="{{url_for('deletar', posicao =placa[i][3], defeito = placa[i][4])}}"><img src="static/imagens/lixo.png" width="30" height="30" alt="REMOVER"></a> 
+						</td>
 					</tr>
 				{%endfor%}
 			</table>
-			<form action="{{url_for('visualizar')}}" method="">
+			<form action="{{url_for('autenticar')}}" method="">
 				<br>
 				<br>
 				<input class="btn btn-danger btn-lg btn-block" type="submit" value="VOLTAR">
 			</form>
 		</div>
+		<script src="static/js/filtro.js"></script>
 	</body>
 </html>
-
-
