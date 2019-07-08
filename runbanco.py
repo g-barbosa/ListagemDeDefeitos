@@ -4,9 +4,9 @@ import mysql.connector
 def conectaBanco():
     mydb = mysql.connector.connect(
     host="localhost",
-    user="seuUsuario",
+    user="seuUser",
     passwd="suaSenha",
-    database="suaDataBase"
+    database="seuBD"
     )
     return mydb
 
@@ -30,44 +30,27 @@ def verificaUser(usuario):
     else:
         return 'erro'
 
-
+#Adiciona novos defeitos ao banco de dados
 def insereDefeito(equipamento,placa,componente,posicao,defeito):
-	mydb = conectaBanco()
-	cursor = mydb.cursor()
-	cursor.execute("INSERT INTO defeitos (equipamento,placa,componente,posicao,defeito) VALUES ('"+equipamento+"','"+placa+"','"+componente+"','"+posicao+"','"+defeito+"')")
-	mydb.commit()
+    mydb = conectaBanco()
+    cursor = mydb.cursor()
+    cursor.execute("INSERT INTO defeitos (equipamento,placa,componente,posicao,defeito) VALUES ('"+equipamento+"','"+placa+"','"+componente+"','"+posicao+"','"+defeito+"')")
+    mydb.commit()
 
-
-def selecionaPorPlaca(placa):
+#Faz busca por todos os itens do banco
+def verTodos():
     mydb = conectaBanco()
     lista = []
     cursor = mydb.cursor()
-    cursor.execute("SELECT * FROM defeitos WHERE placa like '%"+placa+"%'")
+    cursor.execute("SELECT * FROM defeitos")
     resultado = cursor.fetchall()
     for i in resultado:
         lista.append(i)
     return lista
 
-def selecionaPorComp(componente):
+#Apaga itens do banco por posicao e defeito
+def apaga(posicao,defeito):
     mydb = conectaBanco()
-    lista = []
     cursor = mydb.cursor()
-    cursor.execute("SELECT * FROM defeitos WHERE componente like '%"+componente+"%'")
-    resultado = cursor.fetchall()
-    for i in resultado:
-        lista.append(i)
-    return lista
-
-def selecionaPorDef(defeito):
-    mydb = conectaBanco()
-    lista = []
-    cursor = mydb.cursor()
-    cursor.execute("SELECT * FROM defeitos WHERE defeito like '%"+defeito+"%'")
-    resultado = cursor.fetchall()
-    for i in resultado:
-        lista.append(i)
-    return lista
-
-                   
-
-	
+    cursor.execute("DELETE FROM defeitos WHERE posicao = '"+posicao+"' and defeito = '"+defeito+"'")
+    mydb.commit()
